@@ -1,0 +1,17 @@
+# Use Node.js 20.x as base
+FROM node:20
+
+# Set up working directory
+WORKDIR /workspace
+
+# Install Yarn globally, forcing installation in case it's already present
+RUN npm install -g yarn --force
+
+# Install Next.js, React, and React DOM globally (if needed)
+RUN npm install next react react-dom
+
+# Optional: expose the port for the Next.js development server (port 3000)
+EXPOSE 3000
+
+# Run the Next.js development server
+CMD ["npm", "run", "dev"]
